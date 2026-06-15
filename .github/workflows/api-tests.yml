@@ -1,0 +1,44 @@
+name: API Test Automation
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  api-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Start API in background
+        run: |
+          npm start &
+          echo "API started in background"
+
+      - name: Wait for API healthcheck
+        run: |
+          for i in {1..30}; do
+            if curl -fsS http://localhost:5432/api/healthcheck > /dev/null; then
+              echo "API is up and healthy"
+              exit 0
+            fi
+            echo "Waiting for API... attempt $i/30"
+            sleep 2
+          done
+          echo "API did not become healthy in time"
+          exit 1
+
+      - name: Run API tests
+        run: npm test
