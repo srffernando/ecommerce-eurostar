@@ -1,0 +1,277 @@
+{
+  "stats": {
+    "suites": 6,
+    "tests": 4,
+    "passes": 4,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-06-15T09:56:01.196Z",
+    "end": "2026-06-15T09:56:01.612Z",
+    "duration": 416,
+    "testsRegistered": 4,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "2fa5c31c-9348-49c9-a81a-900335ab201a",
+      "title": "",
+      "fullFile": "",
+      "file": "",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "25d5a9ad-d964-46fd-990b-578e25e23ac8",
+          "title": "Auth Tests - Path Coverage",
+          "fullFile": "D:\\EuroStar\\ecommerce-eurostar\\test\\pathCoverage\\auth.test.js",
+          "file": "\\test\\pathCoverage\\auth.test.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [],
+          "suites": [
+            {
+              "uuid": "66f777b6-9242-4b47-9ebf-ee00c7cac34b",
+              "title": "POST /api/register",
+              "fullFile": "D:\\EuroStar\\ecommerce-eurostar\\test\\pathCoverage\\auth.test.js",
+              "file": "\\test\\pathCoverage\\auth.test.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "should register a new user and return 201 with token",
+                  "fullTitle": "Auth Tests - Path Coverage POST /api/register should register a new user and return 201 with token",
+                  "timedOut": false,
+                  "duration": 156,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "const newUser = {\n  username: 'testuser_' + Date.now(),\n  email: 'testuser_' + Date.now() + '@example.com',\n  password: 'testpassword123'\n};\nrequest(baseURL)\n  .post('/api/register')\n  .set('Content-Type', 'application/json')\n  .send(newUser)\n  .expect('Content-Type', /json/)\n  .expect(201)\n  .end((err, res) => {\n    if (err) return done(err);\n    expect(res.body).to.have.property('user');\n    expect(res.body).to.have.property('token');\n    expect(res.body.user).to.have.property('id');\n    expect(res.body.user).to.have.property('username');\n    expect(res.body.user).to.have.property('email');\n    expect(res.body.user.username).to.equal(newUser.username);\n    expect(res.body.user.email).to.equal(newUser.email);\n    expect(res.body.token).to.be.a('string');\n    done();\n  });",
+                  "err": {},
+                  "uuid": "6d82d24b-d864-4ad3-8424-fddf0a4386d4",
+                  "parentUUID": "66f777b6-9242-4b47-9ebf-ee00c7cac34b",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "6d82d24b-d864-4ad3-8424-fddf0a4386d4"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 156,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 10000
+            },
+            {
+              "uuid": "6168c745-de56-447b-852d-c3a1f049a60c",
+              "title": "POST /api/login",
+              "fullFile": "D:\\EuroStar\\ecommerce-eurostar\\test\\pathCoverage\\auth.test.js",
+              "file": "\\test\\pathCoverage\\auth.test.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "should login existing user and return 200 with token",
+                  "fullTitle": "Auth Tests - Path Coverage POST /api/login should login existing user and return 200 with token",
+                  "timedOut": false,
+                  "duration": 114,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "// Using test data from README.md\nconst credentials = {\n  email: 'alice@example.com',\n  password: 'password123'\n};\nrequest(baseURL)\n  .post('/api/login')\n  .set('Content-Type', 'application/json')\n  .send(credentials)\n  .expect('Content-Type', /json/)\n  .expect(200)\n  .end((err, res) => {\n    if (err) return done(err);\n    expect(res.body).to.have.property('user');\n    expect(res.body).to.have.property('token');\n    expect(res.body.user).to.have.property('id');\n    expect(res.body.user).to.have.property('username');\n    expect(res.body.user).to.have.property('email');\n    expect(res.body.user.email).to.equal(credentials.email);\n    expect(res.body.user.username).to.equal('alice');\n    expect(res.body.token).to.be.a('string');\n    done();\n  });",
+                  "err": {},
+                  "uuid": "d89e92bf-4216-420a-b7a3-2b866d531555",
+                  "parentUUID": "6168c745-de56-447b-852d-c3a1f049a60c",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "d89e92bf-4216-420a-b7a3-2b866d531555"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 114,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 10000
+            }
+          ],
+          "passes": [],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 0,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 10000
+        },
+        {
+          "uuid": "51e5813b-f66f-4da5-bfe0-4f7f630963fc",
+          "title": "Checkout Tests - Path Coverage",
+          "fullFile": "D:\\EuroStar\\ecommerce-eurostar\\test\\pathCoverage\\checkout.test.js",
+          "file": "\\test\\pathCoverage\\checkout.test.js",
+          "beforeHooks": [
+            {
+              "title": "\"before all\" hook in \"Checkout Tests - Path Coverage\"",
+              "fullTitle": "Checkout Tests - Path Coverage \"before all\" hook in \"Checkout Tests - Path Coverage\"",
+              "timedOut": false,
+              "duration": 112,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// Login to get authentication token\nconst credentials = {\n  email: 'bob@example.com',\n  password: 'password123'\n};\nrequest(baseURL)\n  .post('/api/login')\n  .set('Content-Type', 'application/json')\n  .send(credentials)\n  .end((err, res) => {\n    if (err) return done(err);\n    authToken = res.body.token;\n    done();\n  });",
+              "err": {},
+              "uuid": "5b286d62-1a37-4035-970e-fe2d178600f0",
+              "parentUUID": "51e5813b-f66f-4da5-bfe0-4f7f630963fc",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "afterHooks": [],
+          "tests": [],
+          "suites": [
+            {
+              "uuid": "12b674ae-ff38-4a0d-a506-774d6a26d3e0",
+              "title": "POST /api/checkout",
+              "fullFile": "D:\\EuroStar\\ecommerce-eurostar\\test\\pathCoverage\\checkout.test.js",
+              "file": "\\test\\pathCoverage\\checkout.test.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "should checkout with cash payment and return 200 with order details",
+                  "fullTitle": "Checkout Tests - Path Coverage POST /api/checkout should checkout with cash payment and return 200 with order details",
+                  "timedOut": false,
+                  "duration": 7,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "// Using test data from README.md - Products and cash payment method\nconst checkoutRequest = {\n  items: [\n    { productId: 1, quantity: 2 },\n    { productId: 3, quantity: 1 }\n  ],\n  paymentMethod: 'cash'\n};\nrequest(baseURL)\n  .post('/api/checkout')\n  .set('Content-Type', 'application/json')\n  .set('Authorization', 'Bearer ' + authToken)\n  .send(checkoutRequest)\n  .expect('Content-Type', /json/)\n  .expect(200)\n  .end((err, res) => {\n    if (err) return done(err);\n    expect(res.body).to.have.property('items');\n    expect(res.body).to.have.property('paymentMethod');\n    expect(res.body).to.have.property('subtotal');\n    expect(res.body).to.have.property('discount');\n    expect(res.body).to.have.property('total');\n    expect(res.body.items).to.be.an('array');\n    expect(res.body.items.length).to.equal(2);\n    expect(res.body.paymentMethod).to.equal('cash');\n    // Cash payment should have 10% discount\n    expect(res.body.discount).to.be.greaterThan(0);\n    expect(res.body.total).to.equal(res.body.subtotal - res.body.discount);\n    done();\n  });",
+                  "err": {},
+                  "uuid": "0055c35f-45e7-4b48-a6da-c07f2ed9b7d8",
+                  "parentUUID": "12b674ae-ff38-4a0d-a506-774d6a26d3e0",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "0055c35f-45e7-4b48-a6da-c07f2ed9b7d8"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 7,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 10000
+            }
+          ],
+          "passes": [],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 0,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 10000
+        },
+        {
+          "uuid": "3a545975-5cac-4cc2-9323-ea907d050933",
+          "title": "Health Check Tests - Path Coverage",
+          "fullFile": "D:\\EuroStar\\ecommerce-eurostar\\test\\pathCoverage\\healthcheck.test.js",
+          "file": "\\test\\pathCoverage\\healthcheck.test.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "GET /api/healthcheck should return 200 with status ok",
+              "fullTitle": "Health Check Tests - Path Coverage GET /api/healthcheck should return 200 with status ok",
+              "timedOut": false,
+              "duration": 5,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "request(baseURL)\n  .get('/api/healthcheck')\n  .expect('Content-Type', /json/)\n  .expect(200)\n  .end((err, res) => {\n    if (err) return done(err);\n    expect(res.body).to.have.property('status');\n    expect(res.body.status).to.equal('ok');\n    done();\n  });",
+              "err": {},
+              "uuid": "ee68453c-8be8-4411-b068-b616ac66e02f",
+              "parentUUID": "3a545975-5cac-4cc2-9323-ea907d050933",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "ee68453c-8be8-4411-b068-b616ac66e02f"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 5,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 10000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 10000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "11.7.6"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "test-report",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "test/reports",
+        "reportFilename": "test-report"
+      },
+      "version": "6.3.2"
+    }
+  }
+}
