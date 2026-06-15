@@ -23,7 +23,7 @@ Start the server:
 npm start
 ```
 
-The API listens on **http://localhost:3000** by default. Set the `PORT` environment variable to use a different port.
+The API listens on **http://localhost:5432** by default. Set the `PORT` environment variable to use a different port.
 
 For development with auto-restart on file changes:
 
@@ -59,7 +59,7 @@ npm run dev
 
 ## How to Use the Rest API
 
-Base URL: `http://localhost:3000/api`
+Base URL: `http://localhost:5432/api`
 
 ### 1. Healthcheck
 
